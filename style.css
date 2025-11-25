@@ -1,0 +1,272 @@
+/* ...existing code... */
+:root{
+  --bg:#f7faf6;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2b9bf4;
+  --stroke:#444;
+  --top-nav-bg: linear-gradient(180deg, rgba(43,155,244,0.08), rgba(43,155,244,0.02));
+  --bottom-bar-bg: #000000;
+}
+
+/* Reset / layout */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-image:
+    linear-gradient(180deg, rgba(8,12,15,0.06), rgba(255,255,255,0.02)),
+    url('images/bg-wood.jpg');
+  background-size: cover, cover;
+  background-position: center;
+  background-attachment: fixed;
+  color:#111827;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  padding:24px;
+}
+
+/* Food gallery styles & animations */
+.gallery{
+  margin:18px 0;
+  padding:16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+  border-radius:12px;
+  box-shadow:0 8px 30px rgba(7,10,14,0.06);
+}
+.gallery h2{font-size:1.15rem; margin-bottom:6px}
+.gallery-intro{color:var(--muted); margin-bottom:12px}
+
+.food-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+  gap:16px;
+  align-items:start;
+}
+
+.food-card{
+  background: rgba(255,255,255,0.85);
+  border-radius:12px;
+  overflow:hidden;
+  transition:transform 260ms ease, box-shadow 260ms ease;
+  box-shadow:0 8px 20px rgba(15,23,42,0.06);
+  display:flex;
+  flex-direction:column;
+}
+.food-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  display:block;
+  transition:transform 360ms cubic-bezier(.2,.9,.2,1), filter 360ms;
+  animation:float 6s ease-in-out infinite;
+  will-change:transform;
+}
+.food-card figcaption{
+  padding:10px 12px;
+  font-weight:600;
+  color:#0f172a;
+  font-size:14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.02));
+}
+
+/* hover / focus */
+.food-card:hover,
+.food-card:focus-within{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:0 20px 40px rgba(15,23,42,0.16);
+}
+.food-card:hover img{
+  transform: scale(1.06) translateZ(0);
+  filter:brightness(1.03) saturate(1.05);
+}
+
+/* floating animation (subtle) */
+@keyframes float{
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-8px) }
+  100% { transform: translateY(0) }
+}
+/* stagger animations so cards move slightly out of phase */
+.food-grid .food-card:nth-child(1) img{ animation-delay:0s }
+.food-grid .food-card:nth-child(2) img{ animation-delay:0.6s }
+.food-grid .food-card:nth-child(3) img{ animation-delay:1.2s }
+.food-grid .food-card:nth-child(4) img{ animation-delay:1.8s }
+
+/* Ensure nav and bottom bar text sizes remain 14px */
+.top-nav a, .editor-item{ font-size:14px }
+
+/* Responsive adjustments */
+@media (max-width:720px){
+  .food-card img{ height:140px }
+  .gallery{ padding:12px }
+}
+
+/* ...existing code... */
+
+/* Top navigation - home left, others right */
+.top-nav{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-bottom:12px;
+}
+.top-nav .nav-inner{
+  max-width:1100px;
+  width:calc(100% - 48px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background: var(--top-nav-bg);
+  padding:8px 14px;
+  border-radius:999px;
+  box-shadow:0 4px 10px rgba(11,66,120,0.04);
+}
+.top-nav .nav-left,
+.top-nav .nav-right{
+  list-style:none;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin:0;
+  padding:0;
+}
+.top-nav a{
+  text-decoration:none;
+  color:var(--accent);
+  font-weight:600;
+  font-size:14px; /* nav text size 14 */
+  padding:6px 10px;
+  border-radius:6px;
+}
+.top-nav a:hover,
+.top-nav a:focus{
+  background:rgba(43,155,244,0.12);
+  color:#0b57a6;
+  outline:none;
+}
+
+/* Site header */
+.site-header{
+  text-align:center;
+  margin-bottom:18px;
+}
+.site-header h1{font-size:clamp(1.4rem,2.6vw,2rem); letter-spacing:0.4px}
+.tagline{color:var(--muted); margin-top:6px}
+
+/* Main container */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(13, 38, 63, 0.08);
+}
+
+/* Layout */
+.intro, .details{
+  padding:12px 6px;
+}
+.food-web{
+  padding:18px 6px;
+  margin:8px 0 20px;
+  background:linear-gradient(180deg, rgba(43,155,244,0.04), transparent);
+  border-radius:8px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* SVG responsive */
+.web-svg{
+  width:100%;
+  max-width:880px;
+  height:auto;
+  display:block;
+}
+
+/* Link styling */
+.links .link{
+  stroke:#3b3b3b;
+  stroke-opacity:0.9;
+}
+
+/* Nodes */
+.node-circle{
+  fill:#fff;
+  stroke:var(--stroke);
+  stroke-width:2;
+  filter:drop-shadow(0 6px 12px rgba(15,23,42,0.08));
+}
+.node-label{
+  font-size:13px;
+  fill:#111827;
+  font-weight:600;
+  pointer-events:none;
+}
+
+/* Color variations */
+.producer .node-circle{fill: #dff6e8; stroke:#1b9a4a}
+.herbivore .node-circle{fill:#fff7d6; stroke:#d6a400}
+.carnivore .node-circle{fill:#fde8ea; stroke:#d8364a}
+.omnivore .node-circle{fill:#e8f2ff; stroke:#2b79d6}
+.decomposer .node-circle{fill:#f3f1f8; stroke:#6b4ec6}
+
+/* Footer */
+.site-footer{
+  text-align:center;
+  margin-top:36px; /* increased so fixed editor-bar doesn't overlap */
+  color:var(--muted);
+  font-size:14px;
+  padding-bottom:64px; /* room for fixed editor bar */
+}
+
+/* Editor info bar (bottom) — black background and white text */
+.editor-bar{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-top:12px;
+  padding:12px 14px;
+  background: var(--bottom-bar-bg);
+  color: #fff;
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-radius:8px;
+}
+
+/* Fixed bottom placement for larger screens */
+@media (min-width:720px){
+  .editor-bar{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:18px;
+    max-width:1100px;
+    width:calc(100% - 48px);
+    box-shadow:0 8px 24px rgba(0,0,0,0.45);
+  }
+}
+
+/* editor items */
+.editor-item{
+  color:rgba(255,255,255,0.88);
+  font-size:14px; /* bottom bar text size 14 */
+}
+.editor-item strong{ color:#ffffff; margin-right:6px; font-weight:600; }
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .container{padding:14px}
+  .node-label{font-size:11px}
+  .top-nav .nav-inner{width:100%; padding:8px 10px}
+  .top-nav .nav-right{gap:8px}
+  .top-nav a{font-size:14px; padding:6px 8px}
+  .editor-bar{position:static; width:100%; box-shadow:none; padding:10px}
+  .editor-item{font-size:12px}
+}
+
+/* ...existing code... */

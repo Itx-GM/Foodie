@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Food Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    
+    <nav class="top-nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <ul class="nav-left">
+                <li><a href="#">Home</a></li>
+            </ul>
+
+            <ul class="nav-right">
+                <li><a href="#">More Categories</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Food usage in ecosystem</h1>
+    <p class="tagline">Understanding the flow of energy in an ecosystem</p>
+</header>
+    <main class="container">
+        <section class="intro">
+            <h2>What is a Food Web?</h2>
+            <p>
+                A food web is a complex network of interconnected food chains that show how energy 
+                and nutrients flow through an ecosystem. It represents the feeding relationships 
+                between organisms such as plants, herbivores, carnivores, and decomposers.
+            </p>
+        </section>
+   <section class="gallery" aria-label="Food gallery">
+            <h2>Examples of Food</h2>
+            <p class="gallery-intro">Common foods that participate in food webs — click or hover to view.</p>
+
+            <div class="food-grid">
+                <figure class="food-card">
+                    <img src="OIP.webp" alt="Fresh salad">
+                    <figcaption>Fresh Salad</figcaption>
+                </figure>
+
+                <figure class="food-card">
+                    <img src="download.webp" alt="Grilled fish">
+                    <figcaption>Grilled Fish</figcaption>
+                </figure>
+
+                <figure class="food-card">
+                    <img src="OIP (1).webp" alt="Fruits and nuts">
+                    <figcaption>Fruits & Nuts</figcaption>
+                </figure>
+
+                <figure class="food-card">
+                    <img src="download (1).webp" alt="Decomposer fungi">
+                    <figcaption>Fungi (Decomposer)</figcaption>
+                </figure>
+            </div>
+        </section>
+            
+        <section class="food-web" aria-label="Food web diagram">
+            <svg viewBox="0 0 900 560" preserveAspectRatio="xMidYMid meet" class="web-svg">
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+                    </marker>
+                </defs>
+
+                <!-- Links -->
+                <g class="links" stroke="#444" stroke-width="2" fill="none" marker-end="url(#arrow)">
+                    <path d="M220 440 C220 360, 260 300, 340 260" class="link"></path> <!-- plant -> herbivore -->
+                    <path d="M340 220 C420 180, 520 160, 580 120" class="link"></path> <!-- herbivore -> carnivore -->
+                    <path d="M720 440 C700 360, 640 300, 580 260" class="link"></path> <!-- plant -> omnivore -->
+                    <path d="M580 140 C640 200, 700 240, 740 300" class="link"></path> <!-- carnivore -> decomposer -->
+                    <path d="M260 460 C420 520, 620 520, 740 460" class="link"></path> <!-- death -> decomposer -->
+                </g>
+
+                <!-- Nodes -->
+                <g class="nodes" font-family="sans-serif" text-anchor="middle">
+                    <!-- Producers -->
+                    <g class="node producer" transform="translate(220,460)">
+                        <circle r="40" class="node-circle"></circle>
+                        <text y="6" class="node-label">Producers</text>
+                    </g>
+
+                    <!-- Herbivores -->
+                    <g class="node herbivore" transform="translate(340,260)">
+                        <circle r="36" class="node-circle"></circle>
+                        <text y="6" class="node-label">Herbivores</text>
+                    </g>
+
+                    <!-- Carnivores -->
+                    <g class="node carnivore" transform="translate(580,120)">
+                        <circle r="44" class="node-circle"></circle>
+                        <text y="6" class="node-label">Carnivores</text>
+                    </g>
+
+                    <!-- Omnivores -->
+                    <g class="node omnivore" transform="translate(720,260)">
+                        <circle r="36" class="node-circle"></circle>
+                        <text y="6" class="node-label">Omnivores</text>
+                    </g>
+
+                    <!-- Decomposers -->
+                    <g class="node decomposer" transform="translate(740,460)">
+                        <circle r="38" class="node-circle"></circle>
+                        <text y="6" class="node-label">Decomposers</text>
+                    </g>
+                </g>
+            </svg>
+        </section>
+
+        <section class="details">
+            <h2>Main Components</h2>
+            <ul>
+                <li><strong>Producers:</strong> Plants that make food through photosynthesis.</li>
+                <li><strong>Consumers:</strong> Animals that eat plants or other animals.</li>
+                <li><strong>Decomposers:</strong> Organisms like fungi and bacteria that break down dead matter.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Created for Assessment • Simple Food Web Introduction Website</p>
+
+        <div class="editor-bar" aria-label="Editor information">
+            <div class="editor-item"><strong>Name:</strong> Ghulam Mustafa</div>
+            <div class="editor-item"><strong>Email:</strong> gma69349@gmail.com</div>
+            <div class="editor-item"><strong>Contact:</strong> +923208464549</div>
+            <div class="editor-item"><strong>Qualification:</strong> B.Sc. Computer Science</div>
+        </div>
+    </footer>
+
+</body>
+</html>
